@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Post = require('../models/Post.js');
 
 // load mongoose
 var mongoose = require('mongoose');
@@ -10,17 +11,15 @@ mongoose.connect('mongodb://localhost/ng2-mean')
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-  res.send('api works');
+    res.send('api works');
 });
 
 // Get all posts
 router.get('/posts', (req, res) => {
-  Post.find()
-    .then(posts => {
-      res.status(200).json(posts);
-    })
-    .catch(error => {
-      res.status(500).send(error)
+    Post.find(function (err, posts) {
+        if (err)
+            return next(err);
+        res.json(posts);
     });
 });
 
