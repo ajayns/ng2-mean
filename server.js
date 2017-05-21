@@ -6,8 +6,18 @@ const bodyParser = require('body-parser');
 
 // Get our API routes
 const api = require('./server/routes/api');
-
 const app = express();
+
+// load mongoose package
+var mongoose = require('mongoose');
+
+// Use native Node promises
+mongoose.Promise = global.Promise;
+
+// connect to MongoDB
+mongoose.connect('mongodb://localhost/ng2-mean')
+  .then(() =>  console.log('Mongo Connection Successful'))
+  .catch((err) => console.error(err));
 
 // Parsers for POST data
 app.use(bodyParser.json());
