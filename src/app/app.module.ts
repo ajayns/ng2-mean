@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
+
+import { PostsComponent } from './posts/posts.component'; // component
+import { PostsService } from './posts.service'; // provider service
 
 // Define routes
 const routes = [
@@ -20,8 +22,6 @@ const routes = [
     }
 ];
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,7 @@ const routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [PostsService], // Add service
   bootstrap: [AppComponent]
 })
 export class AppModule { }
