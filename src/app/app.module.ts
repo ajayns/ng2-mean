@@ -6,10 +6,10 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { PostsComponent } from './posts/posts.component'; // component
-import { PostsService } from './posts.service'; // provider service
+// import { PostsComponent } from './posts/posts.component'; // component
+// import { PostsService } from './posts.service'; // provider service
 
-// Define routes
+/* Define routes
 const routes = [
     {
         path: '',
@@ -21,19 +21,20 @@ const routes = [
         component: PostsComponent
     }
 ];
+*/
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    // PostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    // RouterModule.forRoot(routes)
   ],
-  providers: [PostsService], // Add service
+  providers: [], // [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
